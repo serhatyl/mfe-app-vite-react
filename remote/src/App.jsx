@@ -1,22 +1,23 @@
 import "./App.css";
-import Button from "./Button";
-import { useState } from "react";
+import useCount from "./store";
 
 function App() {
-  const [counter, setCounter] = useState(0);
+  const [count, setCount] = useCount();
 
   return (
     <>
       <h1>Remote Application</h1>
-      <Button />
-      <div className="card">
+      <div>
         <button
-          className="shared-btn"
-          onClick={() => setCounter((count) => count + 1)}
+          type="button"
+          onClick={() => {
+            setCount((count) => count + 1);
+          }}
         >
-          count is {counter}
+          click remote app {count}
         </button>
       </div>
+      <div>{count}</div>
     </>
   );
 }
